@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.routes.chat import router as chat_router
+from backend.routes.departments import router as dept_router
 
 app = FastAPI(title="MindTrack Triage Bot", version="1.0.0")
 
@@ -12,6 +13,7 @@ app.add_middleware(
 )
 
 app.include_router(chat_router)
+app.include_router(dept_router)
 
 @app.get("/")
 def home():
